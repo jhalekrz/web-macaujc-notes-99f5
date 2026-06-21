@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳門六合彩 · 資訊手冊</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f2f2f2;
+            font-family: 'Segoe UI', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+            color: #1e1e1e;
+            line-height: 1.65;
+            padding: 2rem 1.5rem;
+        }
+        .page {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        /* Hero — 雜誌開頁 */
+        .hero {
+            background: #ffffff;
+            border-radius: 36px;
+            padding: 2.8rem 2.2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 4px 8px rgba(0,0,0,0.02);
+            border: 1px solid #e2e2e2;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        .hero::after {
+            content: "⏺ 六合彩專題";
+            position: absolute;
+            top: 1.2rem;
+            right: 1.8rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.3px;
+            color: #9a9a9a;
+            background: #f0f0f0;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            border: 1px solid #dadada;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: #1f1f1f;
+            border-left: 6px solid #d1a54e;
+            padding-left: 1rem;
+        }
+        .hero .sub {
+            font-size: 1rem;
+            color: #5c5c5c;
+            margin-top: 0.5rem;
+            max-width: 70%;
+        }
+        .hero .meta {
+            margin-top: 1.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            border-top: 1px dashed #d0d0d0;
+            padding-top: 1.2rem;
+            font-size: 0.9rem;
+            color: #606060;
+        }
+
+        /* 卡片區塊 */
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2rem 2.2rem 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e4e4e4;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+        }
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #222;
+        }
+        .card h2 small {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: #8a8a8a;
+        }
+        .card p {
+            margin-bottom: 1rem;
+            font-weight: 350;
+        }
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inset-list {
+            margin: 1.2rem 0 0.8rem 0;
+            padding-left: 1.4rem;
+            list-style: none;
+        }
+        .inset-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.55rem;
+            font-size: 0.98rem;
+        }
+        .inset-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #b0884c;
+        }
+
+        .two-col {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+        .col {
+            flex: 1 1 230px;
+        }
+
+        .faq-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #ececec;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+        .faq-item span {
+            color: #3d3d3d;
+            font-size: 0.95rem;
+        }
+
+        .highlight-link {
+            background: #f9f6ef;
+            padding: 1.2rem 1.8rem;
+            border-radius: 100px;
+            display: inline-block;
+            border: 1px solid #ddd4c0;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+        .highlight-link a {
+            color: #2a2a2a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #d1a54e;
+            padding-bottom: 2px;
+        }
+        .highlight-link a:hover {
+            border-bottom-color: #946f2b;
+        }
+
+        .footer-note {
+            text-align: center;
+            padding: 2.2rem 0 0.6rem 0;
+            color: #6b6b6b;
+            font-size: 0.9rem;
+            border-top: 1px solid #dbdbdb;
+            margin-top: 1.5rem;
+            letter-spacing: 0.3px;
+        }
+        .footer-note a {
+            color: #3d3d3d;
+            text-decoration: underline wavy #c0b28b 1px;
+            text-underline-offset: 4px;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1.2rem; }
+            .hero { padding: 1.8rem 1.5rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero .sub { max-width: 100%; }
+            .card { padding: 1.6rem; }
+            .highlight-link { padding: 1rem 1.2rem; border-radius: 40px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 首頁橫幅 -->
+    <div class="hero">
+        <h1>六合彩 · 實用指南</h1>
+        <div class="sub">從基本認知到查閱方式 —— 一份簡明、中立的澳門六合彩資訊彙整。</div>
+        <div class="meta">
+            <span>📌 資訊類別：遊戲說明 & 提醒</span>
+            <span>🕒 更新時間：2025 · 四月</span>
+        </div>
+    </div>
+
+    <!-- 背景說明卡片 -->
+    <div class="card">
+        <h2>⏳ 背景與定位 <small>Macau 六合彩概述</small></h2>
+        <p>
+            六合彩在澳門屬於歷史悠久的數字型彩票遊戲，以 <strong>49 個號碼</strong> 為基礎，
+            每期開出 6 個正選號碼及 1 個特別號碼。參與者透過選號、組合、運氣與策略，
+            嘗試命中不同獎級。由於其規則清晰且開獎頻率固定，長期以來吸引不少關注者。
+        </p>
+        <p>
+            本站 <a href="https://web-macaujc.com">澳门六合彩</a> 即聚焦於此主題，
+            提供玩法說明、歷史開號整理以及注意事項，不涉及任何地下賭盤或非法管道。
+            所有內容均以資訊整理與教育為主要目的。
+        </p>
+        <div class="two-col">
+            <div class="col">
+                <ul class="inset-list">
+                    <li>每週固定開獎 2–3 期</li>
+                    <li>獎金分配依注數與獎級浮動</li>
+                    <li>二星、三星、四星等組合玩法</li>
+                </ul>
+            </div>
+            <div class="col">
+                <ul class="inset-list">
+                    <li>可透過特碼、連碼增加變化</li>
+                    <li>實體投注站或規範平台參與</li>
+                    <li>理性投注、量力而為</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 三段自然介紹 — 從操作、資訊到提醒 -->
+    <div class="card">
+        <h2>📋 從心法到實務</h2>
+        <p><strong>① 新手第一步：理解遊戲結構</strong><br>
+            先掌握基本玩法：選 6 個號碼組成「單式」，或透過「複式」「膽拖」增加覆蓋。
+            開獎後核對號碼，中式 3 個以上即有機會獲得對應獎金。
+            澳門六合彩的特色在於玩法彈性，且派彩條款相對透明。
+        </p>
+        <p><strong>② 資訊查閱與號碼參考</strong><br>
+            無論是長期跟號、冷熱號分析還是簡單紀錄，
+            一個可靠的參考平台能幫助你穩定獲取資訊。
+            透過 <a href="https://web-macaujc.com">澳门六合彩</a> 可瀏覽往期開獎、簡易統計與常見問答，
+            適合當作日常查閱的輔助工具。
+        </p>
+        <p><strong>③ 理性參與與風險意識</strong><br>
+            任何彩票遊戲都帶有隨機性，不存在必中公式。
+            建議設定參與預算、不追號、不借貸，並將六合彩視為休閒娛樂的一環。
+            若感覺沉迷傾向，應暫停並尋求專業協助。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要卡片 + 場景提示 -->
+    <div class="card">
+        <h2>❓ 常見疑問摘要</h2>
+        <div class="faq-item">
+            <strong>六合彩與樂透差在哪？</strong>
+            <span>澳門六合彩使用 49 個號碼，並設有特別號機制，獎級劃分與其他地區樂透略有不同。</span>
+        </div>
+        <div class="faq-item">
+            <strong>如何確認開獎結果？</strong>
+            <span>可參考官方公告或信譽平台，如 <a href="https://web-macaujc.com">澳门六合彩</a> 提供的歷史開獎紀錄對照。</span>
+        </div>
+        <div class="faq-item">
+            <strong>最低投注金額？</strong>
+            <span>每注通常為澳門幣 5 元或 10 元，實際以各投注站或系統公告為準。</span>
+        </div>
+        <div class="faq-item">
+            <strong>可以透過網路下注嗎？</strong>
+            <span>僅限澳門合法註冊之博彩公司提供線上投注，其餘管道請謹慎辨識。</span>
+        </div>
+    </div>
+
+    <!-- 訪問提示 — 嵌入主要連結 -->
+    <div style="text-align: center; margin: 2.2rem 0 0.8rem 0;">
+        <div class="highlight-link">
+            🔗 想了解更多細節？前往 <a href="https://web-macaujc.com">澳门六合彩</a> 瀏覽完整資訊
+        </div>
+        <p style="color: #5f5f5f; font-size: 0.88rem; margin-top: 1rem; letter-spacing: 0.2px;">
+            網站內容僅供參考，所有遊戲規則以官方公佈為準。
+        </p>
+    </div>
+
+    <!-- 頁尾提示 -->
+    <div class="footer-note">
+        <span>📘 雜誌式資訊頁 · 專注澳門六合彩主題</span><br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">理性遊戲 · 健康生活 · 不鼓勵沉迷</span>
+    </div>
+
+</div>
+</body>
+</html>
