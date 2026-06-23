@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐鱼 · 主题叙事</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fce8d2 0%, #f9d6b0 50%, #f1c69a 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1.5rem;
+      line-height: 1.7;
+      color: #2e241f;
+    }
+
+    .card {
+      max-width: 880px;
+      width: 100%;
+      background: #fffcf9;
+      border-radius: 36px;
+      padding: 2.8rem 3rem;
+      box-shadow: 0 20px 40px -12px rgba(140, 80, 40, 0.28), 0 8px 16px -6px rgba(100, 60, 30, 0.12);
+      transition: box-shadow 0.2s ease;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.75rem; }
+      .card { padding: 2rem 1.5rem; border-radius: 28px; }
+    }
+
+    .opening {
+      font-size: 1.25rem;
+      font-weight: 450;
+      letter-spacing: 0.01em;
+      color: #6f4937;
+      border-left: 4px solid #e0a87a;
+      padding-left: 1.4rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .opening strong {
+      font-weight: 600;
+      color: #3c2a22;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #33241e;
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, #b5693c, #d48b58);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .sub {
+      font-size: 1.05rem;
+      color: #544037;
+      margin-bottom: 2.5rem;
+      max-width: 72ch;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem 1.8rem;
+      margin: 2.2rem 0 2.6rem;
+    }
+
+    .feature-item {
+      background: #fef8f2;
+      padding: 1.2rem 1.1rem 1rem 1.1rem;
+      border-radius: 24px;
+      border: 1px solid #f0ddd0;
+      transition: background 0.15s;
+    }
+
+    .feature-item h3 {
+      font-size: 1.1rem;
+      font-weight: 540;
+      color: #3b2a21;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-item p {
+      font-size: 0.935rem;
+      color: #5b4a40;
+      line-height: 1.55;
+    }
+
+    .scene-block {
+      background: #fbf2ea;
+      border-radius: 28px;
+      padding: 1.6rem 2rem;
+      margin: 2rem 0 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.6rem 1.2rem;
+    }
+
+    .scene-block .label {
+      font-weight: 520;
+      font-size: 0.95rem;
+      color: #5b3f31;
+      background: #e7d3c2;
+      padding: 0.2rem 1rem 0.25rem;
+      border-radius: 40px;
+      letter-spacing: 0.02em;
+    }
+
+    .scene-block .desc {
+      font-size: 1rem;
+      color: #3f2f27;
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .faq-preview {
+      margin-top: 2rem;
+      padding-top: 1.6rem;
+      border-top: 2px dashed #eee2d7;
+    }
+
+    .faq-preview details {
+      margin-bottom: 0.9rem;
+    }
+
+    .faq-preview summary {
+      font-weight: 500;
+      color: #5d4135;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      transition: color 0.1s;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .faq-preview summary::before {
+      content: "▸";
+      margin-right: 0.6rem;
+      color: #c4835c;
+      transition: transform 0.2s;
+      font-size: 0.9rem;
+    }
+
+    .faq-preview details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .faq-preview summary:hover {
+      color: #2b1d17;
+    }
+
+    .faq-preview p {
+      margin: 0.3rem 0 0.8rem 1.6rem;
+      color: #5c4a3f;
+      font-size: 0.95rem;
+    }
+
+    .tail {
+      margin-top: 2.4rem;
+      padding-top: 1.5rem;
+      font-size: 0.98rem;
+      color: #5b4a40;
+      border-top: 1px solid #eddccf;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .tail a {
+      display: inline-block;
+      background: #dfb292;
+      color: #2b1e18;
+      text-decoration: none;
+      font-weight: 540;
+      padding: 0.45rem 1.4rem;
+      border-radius: 60px;
+      font-size: 1rem;
+      transition: background 0.15s, box-shadow 0.15s;
+      box-shadow: 0 2px 6px rgba(150, 90, 50, 0.12);
+      letter-spacing: 0.01em;
+    }
+
+    .tail a:hover {
+      background: #cf9d79;
+      box-shadow: 0 4px 10px rgba(130, 70, 35, 0.18);
+    }
+
+    .tail .muted {
+      color: #7d685b;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="opening">
+      <strong>一条游弋的线索</strong> —— 从叙述的起点出发，主题逐渐显影。
+    </div>
+
+    <h1>
+      围绕 <span>乐鱼</span> 的叙述
+    </h1>
+
+    <div class="sub">
+      在信息与感知的交汇处，我们选择以「鱼」的视角观察流动的内容生态。关键词不只是标签，更是一条潜在线索，串联起场景、需求与日常使用的真实连接。
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>线索驱动</h3>
+        <p>每个关键词都像水中的波纹，从核心向外延展，自然牵引出相关功能与内容语境。</p>
+      </div>
+      <div class="feature-item">
+        <h3>轻量化叙事</h3>
+        <p>去掉冗余导航，以短段落和卡片承载信息密度，阅读节奏平缓而清晰。</p>
+      </div>
+      <div class="feature-item">
+        <h3>场景优先</h3>
+        <p>不堆砌功能列表，而是还原真实使用瞬间——搜索、发现、停留、回访。</p>
+      </div>
+      <div class="feature-item">
+        <h3>温和引导</h3>
+        <p>界面与文案保持低干扰，用圆角与暖色构建可信赖的浏览氛围。</p>
+      </div>
+    </div>
+
+    <div class="scene-block">
+      <span class="label">日常场景</span>
+      <span class="desc">在内容流中偶遇感兴趣的主题，顺着关键词游入更深的页面，每一次点击都接近自己想要的答案。不需要刻意寻找，路径自然浮现。</span>
+    </div>
+
+    <div class="faq-preview">
+      <details>
+        <summary>「乐鱼」指向什么主题？</summary>
+        <p>它代表一个内容聚合的切入点，围绕特定话题展开信息组织与呈现。你可以把它理解为某种兴趣坐标，帮助定位相关内容集合。</p>
+      </details>
+      <details>
+        <summary>页面结构为什么这样设计？</summary>
+        <p>尝试用故事逻辑代替功能罗列：先有开场氛围，再有承接段落与特点拆解，最后以温和的收束和链接作为落脚点，让浏览更像一次简短的阅读。</p>
+      </details>
+      <details>
+        <summary>如何进一步了解？</summary>
+        <p>页面底部提供了直接入口。你也可以在浏览中留意其他关联线索，它们共同构成完整的叙事路径。</p>
+      </details>
+    </div>
+
+    <div class="tail">
+      <span class="muted">一个线索，一段叙述</span>
+      <a href="https://site-home-leyu.com">乐鱼</a>
+    </div>
+  </div>
+</body>
+</html>
