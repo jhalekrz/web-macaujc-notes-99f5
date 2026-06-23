@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>再访 · 乐鱼</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f5f7;
+            color: #2c2e33;
+            line-height: 1.6;
+            padding: 24px 16px;
+        }
+
+        .page-wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* === hero 区 === */
+        .hero-card {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            padding: 48px 32px;
+            margin-bottom: 32px;
+            border: 1px solid #e8eaed;
+            text-align: center;
+        }
+
+        .hero-icon {
+            font-size: 2.8rem;
+            line-height: 1;
+            margin-bottom: 12px;
+            display: inline-block;
+            background: #f0f2f5;
+            padding: 8px 16px;
+            border-radius: 60px;
+        }
+
+        .hero-card h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #1a1d23;
+            margin-top: 4px;
+        }
+
+        .hero-card .subhead {
+            font-size: 1.15rem;
+            color: #4f535c;
+            max-width: 600px;
+            margin: 16px auto 0;
+            border-bottom: 1px dashed #d5d8de;
+            padding-bottom: 20px;
+        }
+
+        .hero-cta-note {
+            margin-top: 20px;
+            font-size: 0.98rem;
+            color: #6d727c;
+            background: #f8f9fb;
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 40px;
+            border: 1px solid #e2e5ea;
+        }
+
+        /* === 卡片通用 === */
+        .section-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e6e9ed;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .section-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1f2127;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title span {
+            background: #edeff2;
+            border-radius: 40px;
+            padding: 2px 12px;
+            font-size: 0.85rem;
+            color: #4b4f58;
+        }
+
+        /* 优势区 三列卡片 */
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .advantage-item {
+            background: #fafbfc;
+            border-radius: 20px;
+            padding: 22px 20px;
+            border: 1px solid #e6e9ed;
+            text-align: center;
+        }
+
+        .advantage-item .emoji-badge {
+            font-size: 2.2rem;
+            margin-bottom: 6px;
+        }
+
+        .advantage-item h3 {
+            font-weight: 500;
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+            color: #202226;
+        }
+
+        .advantage-item p {
+            font-size: 0.95rem;
+            color: #565b65;
+        }
+
+        /* 说明区 分块 */
+        .desc-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: space-between;
+        }
+
+        .desc-block {
+            flex: 1 1 200px;
+            background: #f9fafc;
+            border-radius: 20px;
+            padding: 20px 18px;
+            border: 1px solid #e8ebef;
+        }
+
+        .desc-block h4 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #24272e;
+        }
+
+        .desc-block p {
+            font-size: 0.95rem;
+            color: #4a4f5a;
+        }
+
+        .desc-block .small-note {
+            font-size: 0.88rem;
+            color: #787e8a;
+            margin-top: 10px;
+        }
+
+        /* FAQ 摘要 */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-q {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #eceef1;
+        }
+
+        .faq-q:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q .question {
+            font-weight: 500;
+            color: #202328;
+        }
+
+        .faq-q .answer {
+            font-size: 0.95rem;
+            color: #585e69;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            margin-top: 20px;
+            text-align: center;
+            padding: 24px 0 10px;
+            border-top: 1px solid #dfe2e8;
+        }
+
+        .footer-links p {
+            font-size: 0.92rem;
+            color: #717783;
+            margin-bottom: 6px;
+        }
+
+        .footer-links a {
+            color: #2c5f8a;
+            text-decoration: none;
+            border-bottom: 1px dotted #b0b9c4;
+            font-weight: 450;
+            transition: border-color 0.1s;
+        }
+
+        .footer-links a:hover {
+            border-bottom: 1px solid #2c5f8a;
+        }
+
+        .inline-link {
+            color: #2c5f8a;
+            text-decoration: none;
+            border-bottom: 1px dotted #b2bcc9;
+            font-weight: 450;
+        }
+
+        .inline-link:hover {
+            border-bottom: 1px solid #2c5f8a;
+        }
+
+        @media (max-width: 560px) {
+            body {
+                padding: 16px 12px;
+            }
+            .hero-card {
+                padding: 32px 20px;
+            }
+            .hero-card h1 {
+                font-size: 1.9rem;
+            }
+            .section-card {
+                padding: 26px 18px;
+            }
+            .advantage-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .desc-flex {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- hero -->
+    <div class="hero-card">
+        <div class="hero-icon">🐟</div>
+        <h1>回来看看 · 乐鱼</h1>
+        <div class="subhead">收藏过的角落，熟悉的节奏，<br>每一次回来都像翻到标记过的书页。</div>
+        <div class="hero-cta-note">把这里加入书签 —— 方便常回来</div>
+    </div>
+
+    <!-- 优势区：再次访问与持续关注 -->
+    <div class="section-card">
+        <div class="card-title">
+            <span>🌱</span> 为什么值得再次打开
+        </div>
+        <div class="advantage-grid">
+            <div class="advantage-item">
+                <div class="emoji-badge">📌</div>
+                <h3>低门槛回顾</h3>
+                <p>不需要重新适应，界面和偏好设置保持如初，打开就能接着上次的节奏。</p>
+            </div>
+            <div class="advantage-item">
+                <div class="emoji-badge">🔄</div>
+                <h3>持续更新</h3>
+                <p>内容与功能会逐步调整，但每次变化都保留了熟悉的底子，不突兀。</p>
+            </div>
+            <div class="advantage-item">
+                <div class="emoji-badge">📁</div>
+                <h3>收藏友好</h3>
+                <p>浏览器书签、手机桌面快捷方式都兼容，存一次就能长期使用。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 说明区：从收藏和关注切入 -->
+    <div class="section-card">
+        <div class="card-title">
+            <span>🧭</span> 关于再次访问与关注
+        </div>
+        <div class="desc-flex">
+            <div class="desc-block">
+                <h4>🗂️ 收藏小建议</h4>
+                <p>将 <a href="https://site-app-leyu.com" class="inline-link">乐鱼</a> 添加到浏览器收藏夹或手机主屏幕，下次访问直接从书签或桌面图标进入，不用重复搜索。</p>
+                <div class="small-note">iOS Safari 点击“共享” → “添加到主屏幕”</div>
+            </div>
+            <div class="desc-block">
+                <h4>📡 保持关注</h4>
+                <p>如果你对平台动态感兴趣，可以偶尔回来看看。页面本身会逐步带来一些调整与补充，但不会频繁打扰。</p>
+            </div>
+            <div class="desc-block">
+                <h4>🔁 熟悉又新鲜</h4>
+                <p>每次访问都会看到一些细节变化，但核心体验保持一致。就像常去的社区，知道每个区域的位置。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="section-card">
+        <div class="card-title">
+            <span>❓</span> 常见疑问 · 摘要
+        </div>
+        <div class="faq-list">
+            <div class="faq-q">
+                <div class="question">我上次用过，再回来需要重新注册吗？</div>
+                <div class="answer">不需要。只要使用同一设备或账号，之前的偏好和记录一般会保留。如果遇到加载问题，可以检查网络或清除缓存后重试。</div>
+            </div>
+            <div class="faq-q">
+                <div class="question">如何能更快找到这里？</div>
+                <div class="answer">建议直接收藏当前页面或把 <a href="https://site-app-leyu.com" class="inline-link">乐鱼</a> 设为浏览器主页标签。对于手机用户，添加到桌面是最直接的方式。</div>
+            </div>
+            <div class="faq-q">
+                <div class="question">内容会经常变吗？</div>
+                <div class="answer">会进行适度更新，但不会频繁到让人困扰。调整通常以优化体验为主，且会保留之前的主要结构和入口。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <p>再次访问 · 收藏 · 持续关注</p>
+        <p>
+            <a href="https://site-app-leyu.com">乐鱼</a>
+            — 熟悉的角落，值得一个书签位。
+        </p>
+        <p style="margin-top: 12px; font-size: 0.82rem; color: #8c919d;">页面设计 · 常回来看看</p>
+    </div>
+
+</div>
+</body>
+</html>
