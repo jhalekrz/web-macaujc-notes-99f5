@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 · 再次遇见的地方</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9f6f0;
+            font-family: 'Georgia', 'Times New Roman', 'Songti SC', serif;
+            color: #2e2a24;
+            line-height: 1.8;
+            padding: 2.5rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-container {
+            max-width: 780px;
+            width: 100%;
+            background: #fefcf8;
+            border-radius: 28px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.03), 0 0 0 1px #e8e2d7 inset;
+            padding: 2.8rem 2.2rem;
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 500px) {
+            body { padding: 1.2rem 0.8rem; }
+            .page-container { padding: 1.8rem 1.2rem; border-radius: 18px; }
+        }
+
+        /* 主视觉 —— 像一句老朋友的开场白 */
+        .hero {
+            text-align: left;
+            margin-bottom: 2.2rem;
+            padding-bottom: 1.6rem;
+            border-bottom: 1px dashed #d9d0c3;
+        }
+
+        .hero-label {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #a89986;
+            margin-bottom: 0.4rem;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: #3b342d;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero h1 i {
+            font-style: italic;
+            color: #b7a082;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #5f5548;
+            max-width: 560px;
+        }
+
+        .hero p a {
+            color: #7f6b53;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #cdbba6;
+            font-weight: 500;
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+
+        .hero p a:hover {
+            color: #4a3f33;
+            text-decoration-color: #4a3f33;
+        }
+
+        /* 用途卡片 —— 信息卡片式重点 */
+        .card-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2.4rem 0 2rem;
+        }
+
+        .card-item {
+            flex: 1 1 180px;
+            background: #f6f2ea;
+            border-radius: 20px;
+            padding: 1.6rem 1.2rem 1.4rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid #ece4d8;
+            transition: box-shadow 0.2s;
+        }
+
+        .card-item:hover {
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-item h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #3b342d;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .card-item p {
+            font-size: 0.95rem;
+            color: #5b5145;
+        }
+
+        .card-icon {
+            display: inline-block;
+            font-size: 1.6rem;
+            margin-bottom: 0.4rem;
+            line-height: 1;
+            opacity: 0.7;
+        }
+
+        /* 适合人群 + 引用块 */
+        .quote-block {
+            background: #f1ede5;
+            border-left: 5px solid #cbb9a6;
+            padding: 1.3rem 1.6rem;
+            margin: 2rem 0 2.2rem;
+            border-radius: 0 16px 16px 0;
+            font-style: normal;
+        }
+
+        .quote-block p {
+            font-size: 1rem;
+            color: #3e3830;
+        }
+
+        .quote-block .attribution {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: #8b7d6b;
+            letter-spacing: 0.3px;
+        }
+
+        .audience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.8rem;
+            margin: 0.6rem 0 0.2rem;
+        }
+
+        .tag {
+            background: #e6ded2;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #3f382f;
+            letter-spacing: 0.3px;
+        }
+
+        /* 自然链接段落 */
+        .link-paragraph {
+            background: #fcfaf6;
+            padding: 1.6rem 1.8rem;
+            border-radius: 20px;
+            border: 1px solid #e3dbce;
+            margin: 2.2rem 0 2rem;
+            font-size: 1.05rem;
+        }
+
+        .link-paragraph a {
+            color: #6f5d48;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #c7b6a2;
+            font-weight: 500;
+            transition: all 0.15s;
+        }
+
+        .link-paragraph a:hover {
+            color: #2f2820;
+            text-decoration-color: #2f2820;
+        }
+
+        .link-paragraph .highlight {
+            background: #efe9df;
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+            font-style: normal;
+        }
+
+        /* FAQ 摘要风格 */
+        .faq-mini {
+            margin: 1.8rem 0 0.6rem;
+            border-top: 1px solid #e3dbce;
+            padding-top: 1.6rem;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #ede7dd;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #3b342d;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            color: #625a4e;
+            font-size: 0.95rem;
+        }
+
+        .faq-a a {
+            color: #7a6853;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #cfbfac;
+        }
+
+        .faq-a a:hover {
+            color: #2f2820;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 2.8rem;
+            text-align: left;
+            font-size: 0.9rem;
+            color: #a69683;
+            border-top: 1px solid #e8e0d4;
+            padding-top: 1.6rem;
+            letter-spacing: 0.2px;
+        }
+
+        .footer-note a {
+            color: #8f7b65;
+            text-decoration: none;
+            border-bottom: 1px dotted #d1c0ae;
+        }
+
+        .footer-note a:hover {
+            border-bottom: 1px solid #4a3f33;
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+
+    <!-- 主视觉 / hero -->
+    <div class="hero">
+        <div class="hero-label">✦ 记在书签里</div>
+        <h1>乐鱼 · <i>再次回来</i></h1>
+        <p>有些地方，去过一次就想收藏。把 <a href="https://portalmain-leyu.com">乐鱼</a> 放在浏览器的常用栏里，像夹一枚喜欢的书签，随时可以翻到那一页。</p>
+    </div>
+
+    <!-- 用途卡片：信息卡片式 -->
+    <div class="card-section">
+        <div class="card-item">
+            <div class="card-icon">📌</div>
+            <h3>收藏的习惯</h3>
+            <p>把常用的站点收进收藏夹，是种安静的默契。乐鱼就是这样一处，值得标记下来的角落。</p>
+        </div>
+        <div class="card-item">
+            <div class="card-icon">🔄</div>
+            <h3>再次访问</h3>
+            <p>不需要记住复杂的地址，只需在书签栏轻轻一点。每次回来，都像推开一扇熟悉的门。</p>
+        </div>
+        <div class="card-item">
+            <div class="card-icon">👀</div>
+            <h3>持续关注</h3>
+            <p>内容总在慢慢生长，隔段时间再来，总能看到些不一样的东西。保持关注，也是一种陪伴。</p>
+        </div>
+    </div>
+
+    <!-- 引用块 + 适合人群 -->
+    <div class="quote-block">
+        <p>“有朋友问我，为什么总把那个叫乐鱼的页面留在第一个书签文件夹里。我说，有些页面不需要天天打开，但你知道它在那里，就很好。像一本翻了一半、随手放在茶几上的书。”</p>
+        <div class="attribution">—— 一位习惯收藏的访客</div>
+        <div class="audience-tags">
+            <span class="tag">喜欢收藏书签的人</span>
+            <span class="tag">习惯定期回看的人</span>
+            <span class="tag">不赶时间、慢慢浏览的人</span>
+        </div>
+    </div>
+
+    <!-- 自然链接段落：从再次访问和收藏的角度 -->
+    <div class="link-paragraph">
+        <p>如果你也习惯把喜欢的页面收藏起来，不妨在书签栏里给 <a href="https://portalmain-leyu.com">乐鱼</a> 留一个位置。不是所有站点都值得被记住，但那些让你愿意<em>再次回来</em>的，总有种说不清的踏实感。收藏不是为了囤积，而是为了某个想安静看看的午后，可以毫不犹豫地点开它。</p>
+    </div>
+
+    <!-- FAQ 摘要（轻量、非模板化） -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="faq-q">▸ 如何让乐鱼在书签栏里更容易找到？</div>
+            <div class="faq-a">可以给书签重命名为「乐鱼」，或者放在浏览器的「常用」文件夹里，这样每次打开浏览器都能一眼看到。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">▸ 为什么值得持续关注？</div>
+            <div class="faq-a">页面内容会随时间有所调整和更新，偶尔回来看一眼，或许会发现一些之前没留意到的细节。就像重读一本旧书，常有新滋味。了解 <a href="https://portalmain-leyu.com">乐鱼</a> 本身，比任何描述都更真实。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">▸ 收藏后还需要记住网址吗？</div>
+            <div class="faq-a">完全不需要。收藏就是为了省去记忆的负担。只要书签还在，随时可以回来。</div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <p>从收藏到回访，是一种不着急的节奏。<a href="https://portalmain-leyu.com">乐鱼</a> 一直在那里。页面基于日常使用场景构思，风格与内容皆为独立呈现。</p>
+    </div>
+
+</div>
+</body>
+</html>
